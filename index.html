@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101a27" />
+    <title>LIQORA Water Monitor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div class="logo" aria-hidden="true">L</div>
+        <div>
+          <p class="eyebrow">LIQORA · WATER MANAGEMENT</p>
+          <h1>System monitor</h1>
+        </div>
+        <span id="connectionStatus" class="connection">Connecting…</span>
+      </header>
+
+      <section class="tank-grid" aria-label="Tank levels">
+        <article class="card tank-card">
+          <div class="card-heading"><span>Sump tank</span><span class="tank-icon">S</span></div>
+          <div class="reading"><strong id="sumpLevel">—</strong><span>%</span></div>
+          <div class="meter"><span id="sumpBar"></span></div>
+          <p class="subtext">Pump safe start: 15%</p>
+        </article>
+        <article class="card tank-card">
+          <div class="card-heading"><span>Overhead tank</span><span class="tank-icon">O</span></div>
+          <div class="reading"><strong id="ohtLevel">—</strong><span>%</span></div>
+          <div class="meter"><span id="ohtBar"></span></div>
+          <p class="subtext">Pump stops at 95%</p>
+        </article>
+      </section>
+
+      <section class="data-grid" aria-label="Water system status">
+        <article class="card data-card"><span class="label">Current source</span><strong id="currentSource">—</strong></article>
+        <article class="card data-card"><span class="label">Sump flow</span><strong><span id="sumpFlowRate">—</span> <small>L/min</small></strong></article>
+        <article class="card data-card"><span class="label">Borewell flow</span><strong><span id="boreFlowRate">—</span> <small>L/min</small></strong></article>
+      </section>
+
+      <section class="card status-card">
+        <div class="section-heading">
+          <div><p class="eyebrow">LIVE STATUS</p><h2>Pumps and valve</h2></div>
+          <span id="updatedAt" class="updated">Waiting for data</span>
+        </div>
+        <div class="state-grid">
+          <div class="state-row"><span>Sump pump</span><strong id="sumpPump">—</strong></div>
+          <div class="state-row"><span>Borewell pump</span><strong id="borePump">—</strong></div>
+          <div class="state-row"><span>Municipal valve</span><strong id="municipalValve">—</strong></div>
+          <div class="state-row"><span>Municipal filling</span><strong id="municipalFilling">—</strong></div>
+          <div class="state-row"><span>Relay IN4</span><strong id="relayIn4">—</strong></div>
+          <div class="state-row"><span>Sump available</span><strong id="sumpAvailable">—</strong></div>
+          <div class="state-row"><span>OHT filling</span><strong id="ohtFilling">—</strong></div>
+          <div class="state-row"><span>Sump lockout</span><strong id="sumpLockout">—</strong></div>
+          <div class="state-row"><span>Borewell lockout</span><strong id="boreLockout">—</strong></div>
+        </div>
+      </section>
+
+      <p id="errorMessage" class="error-message" role="status"></p>
+      <footer>Read-only dashboard · updated from Firebase Realtime Database</footer>
+    </main>
+  </body>
+</html>
